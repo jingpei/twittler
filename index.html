@@ -23,10 +23,14 @@
             var tweet = streams.home[stopIndex];
             var $tweet = $('<div></div>');
             var $timestamp = $('<p></p>');
+            var $user = $('<strong></strong');
+            
             $timestamp.text(tweet.created_at);
-            $tweet.text('@' + tweet.user + ': ' + tweet.message);
-            $tweet.append($timestamp);
+            $user.text(tweet.user);
+
+            $tweet.append('@', $user, ': ' + tweet.message, $timestamp)
             $tweet.prependTo($container);
+            
             stopIndex += 1;
           }
         }
