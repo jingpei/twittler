@@ -9,16 +9,42 @@
 
       $(document).ready(function(){
         var $body = $('body');
-        $body.html('');
+        var $button = $('<button>Load Tweets</button>');
+        var $container = $('<div class="container"></div>');
 
-        var index = streams.home.length - 1;
-        while(index >= 0){
-          var tweet = streams.home[index];
-          var $tweet = $('<div></div>');
-          $tweet.text('@' + tweet.user + ': ' + tweet.message);
-          $tweet.appendTo($body);
-          index -= 1;
+        $body.html('');
+        $button.appendTo($body);
+        $container.appendTo($body);
+
+        var lastIndexLoaded = 0;
+        var loadTweets = function(index, stopIndex){
+          lastIndexLoaded = index;
+          // while(index >= stopIndex){
+          //   var tweet = streams.home[index];
+          //   var $tweet = $('<div></div>');
+          //   var $time = $('<div></div>');
+          //   $tweet.text('@' + tweet.user + ': ' + tweet.message);
+          //   $tweet.appendTo($container);
+          //   $time.text('Tweeted at: ' + tweet.created_at);
+          //   $time.appendTo($container);
+          //   index -= 1;
+          // }
+          while(stopIndex <= index){
+            var tweet = streams.home[stopIndex];
+            console.log(tweet);
+            console.log(stopIndex)
+            var $tweet = $('<div></div>');
+            $tweet.text('@' + tweet.user + ': ' + tweet.message);
+            $tweet.prependTo($container);
+            stopIndex += 1;
+          }
         }
+
+        loadTweets(streams.home.length - 1, 0)
+
+        $('button').on('click', function(){
+          loadTweets(streams.home.length - 1, lastIndexLoaded + 1)
+        });
 
       });
 
