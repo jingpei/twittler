@@ -19,22 +19,13 @@
         var lastIndexLoaded = 0;
         var loadTweets = function(index, stopIndex){
           lastIndexLoaded = index;
-          // while(index >= stopIndex){
-          //   var tweet = streams.home[index];
-          //   var $tweet = $('<div></div>');
-          //   var $time = $('<div></div>');
-          //   $tweet.text('@' + tweet.user + ': ' + tweet.message);
-          //   $tweet.appendTo($container);
-          //   $time.text('Tweeted at: ' + tweet.created_at);
-          //   $time.appendTo($container);
-          //   index -= 1;
-          // }
           while(stopIndex <= index){
             var tweet = streams.home[stopIndex];
-            console.log(tweet);
-            console.log(stopIndex)
             var $tweet = $('<div></div>');
+            var $timestamp = $('<p></p>');
+            $timestamp.text(tweet.created_at);
             $tweet.text('@' + tweet.user + ': ' + tweet.message);
+            $tweet.append($timestamp);
             $tweet.prependTo($container);
             stopIndex += 1;
           }
