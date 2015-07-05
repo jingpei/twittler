@@ -17,10 +17,12 @@
         $container.appendTo($body);
 
         var lastIndexLoaded = 0;
-        var loadTweets = function(index, stopIndex){
+        var loadTweets = function(index, stopIndex, tweetArr){
+          
           lastIndexLoaded = index;
           while(stopIndex <= index){
-            var tweet = streams.home[stopIndex];
+
+            var tweet = tweetArr[stopIndex];
             var $tweet = $('<div></div>');
             var $timestamp = $('<p></p>');
             var $user = $('<strong></strong');
@@ -35,10 +37,22 @@
           }
         }
 
-        loadTweets(streams.home.length - 1, 0)
+        loadTweets(streams.home.length - 1, 0, streams.home);
 
         $('button').on('click', function(){
-          loadTweets(streams.home.length - 1, lastIndexLoaded + 1)
+          loadTweets(streams.home.length - 1, lastIndexLoaded + 1, streams.home)
+        });
+
+        $('div').on('click', 'strong', function(){
+          var user = $(this).text();
+
+          $body.html('');
+          $container.html('');
+          $button.appendTo($body);
+          $container.appendTo($body);
+
+          loadTweets(streams.users[user].length - 1, 0, streams.users[user]);
+          
         });
 
       });
