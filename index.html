@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
   <head>
-
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
     <link rel="stylesheet" href="css/styles.css">
     <script src="js/jquery.js"></script>
     <script src="js/data_generator.js"></script>
@@ -9,6 +10,8 @@
   </head>
   <body>
     <nav>Twittler</nav>
+    <aside class="left">Something</aside>
+    <aside class="right">Something</aside>
     <div class="container">
       <div class="buttonContainer"></div>
       <div class="tweetContainer"></div>
@@ -16,7 +19,7 @@
     <script>
 
       $(document).ready(function(){
-        var $button = $('<button>Load Tweets</button>');
+        var $button = $('<button>Load new Tweets</button>');
         var $container = $('.container');
 
         $button.addClass('load');
@@ -67,7 +70,7 @@
         $(document).on('click', 'strong', function(){
           var user = $(this).text().split("@")[1];
           console.log(user);
-          var $back = $('<button class="back">Back</button>')
+          var $back = $('<button class="back">View all Tweets</button>')
 
           $container.children().html('');
           $button.attr('id', user);

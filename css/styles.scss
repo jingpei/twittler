@@ -1,7 +1,10 @@
 $blue: #55acee;
+$brightBlue: #1dcaff;
+$darkBlue: #0084b4;
 $white: #ffffff;
-$hoverBlue: #c0deed;
-$linkHoverOrange: #dd4b39;
+$hoverBlue: #e0e9ee;
+$buttonBlue: #b6dbee;
+$linkHoverOrange: #ff7200;
 
 $fontOpenSans: 'Open Sans', sans-serif;
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300);
@@ -24,33 +27,87 @@ nav {
 	padding: 5px 0px;
 }
 
+aside {
+	display: none;
+
+	@media screen and (min-width: 1280px){
+		display: block;
+		width: 300px;
+		height: 450px;
+		margin: 20px;
+		background-color: $white;
+		border-radius: 5px;
+	}
+}
+
+.left {
+	float: left;
+}
+
+.right {
+	float: right;
+}
+
 .container {
+
 	background-color: $white;
-	margin: 20px auto 30px auto;
-	width: 600px;
+	width: 100%;
 	font-size: 0.9em;
 
-	-moz-border-radius: 5px;
-	-webkit-border-radius: 5px;
-	border-radius: 5px;
+
 	
-	p {
-		font-size: 0.8em;
+	@media screen and (min-width: 650px){
+		width: 600px;
+		margin: 20px auto 30px auto;
+		-moz-border-radius: 5px;
+		-webkit-border-radius: 5px;
+		border-radius: 5px;
 	}
+
 }
 
 button {
-	margin: 10px 5px;
+	display: block;
+	width: 100%;
+	height: 40px;
+	border-style: none;
+	border-bottom: 3px solid $blue;	
+	background-color: $hoverBlue;
+	font-family: $fontOpenSans;
+	font-size: 1em;
+	color: $linkHoverOrange;
+}
+
+.load {
+	border-top-right-radius: 5px;
+	border-top-left-radius: 5px;
+}
+
+button:hover {
+	background-color: $buttonBlue;
+}
+
+button:active {
+	opacity: 0.8;
+}
+
+button:focus {
+	outline: 0;
 }
 
 .tweetContainer {
+	font-size: 0.9em;
+
 	div {
-		padding: 10px;
+		padding: 15px;
 		border-top: 1px solid $hoverBlue;
+	}
+	p {
+		font-size: 0.8em;
+		margin: 6px 0 0 0;
 	}
 	div:hover {
 		background-color: $hoverBlue;
-		opacity: .7;
 	}
 }
 

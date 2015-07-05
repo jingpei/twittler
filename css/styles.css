@@ -14,29 +14,72 @@ nav {
   font-size: 1.5em;
   padding: 5px 0px; }
 
+aside {
+  display: none; }
+  @media screen and (min-width: 1280px) {
+    aside {
+      display: block;
+      width: 300px;
+      height: 450px;
+      margin: 20px;
+      background-color: #ffffff;
+      border-radius: 5px; } }
+
+.left {
+  float: left; }
+
+.right {
+  float: right; }
+
 .container {
   background-color: #ffffff;
-  margin: 20px auto 30px auto;
-  width: 600px;
-  font-size: 0.9em;
-  -moz-border-radius: 5px;
-  -webkit-border-radius: 5px;
-  border-radius: 5px; }
-  .container p {
-    font-size: 0.8em; }
+  width: 100%;
+  font-size: 0.9em; }
+  @media screen and (min-width: 650px) {
+    .container {
+      width: 600px;
+      margin: 20px auto 30px auto;
+      -moz-border-radius: 5px;
+      -webkit-border-radius: 5px;
+      border-radius: 5px; } }
 
 button {
-  margin: 10px 5px; }
+  display: block;
+  width: 100%;
+  height: 40px;
+  border-style: none;
+  border-bottom: 3px solid #55acee;
+  background-color: #e0e9ee;
+  font-family: "Open Sans", sans-serif;
+  font-size: 1em;
+  color: #ff7200; }
 
-.tweetContainer div {
-  padding: 10px;
-  border-top: 1px solid #c0deed; }
-.tweetContainer div:hover {
-  background-color: #c0deed;
-  opacity: .7; }
+.load {
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px; }
+
+button:hover {
+  background-color: #b6dbee; }
+
+button:active {
+  opacity: 0.8; }
+
+button:focus {
+  outline: 0; }
+
+.tweetContainer {
+  font-size: 0.9em; }
+  .tweetContainer div {
+    padding: 15px;
+    border-top: 1px solid #e0e9ee; }
+  .tweetContainer p {
+    font-size: 0.8em;
+    margin: 6px 0 0 0; }
+  .tweetContainer div:hover {
+    background-color: #e0e9ee; }
 
 strong:hover {
-  color: #dd4b39;
+  color: #ff7200;
   text-decoration: underline; }
 
 /*# sourceMappingURL=styles.css.map */
