@@ -10,8 +10,23 @@
   </head>
   <body>
     <nav>Twittler</nav>
-    <aside class="left">Something</aside>
+    <aside class="left">
+      <div class="leftTop"></div>
+      <div class="profileImg">@</div>
+      <div class="profileTitle">Some Twittler <p>@someTwittler</p></div>
+      <div class="profileInfo">
+        <div id="tweetCount">TWEETS<p><strong>0</strong></p></div>
+        <div id="followingCount">FOLLOWING<p><strong>4</strong></p></div>
+        <div id="followerCount">FOLLOWERS<p><strong>0</strong></p></div>
+      </div>
+    </aside>
     <aside class="right">Something</aside>
+    <div class="postTweet">
+      <form>
+        <input placeholder="What's happening?" maxlength="140"></input>
+        <button id="submitTweet">Tweet</button>
+      </form>
+    </div>
     <div class="container">
       <div class="buttonContainer"></div>
       <div class="tweetContainer"></div>
@@ -54,7 +69,7 @@
           if($(this).attr('id') === 'home'){
             loadTweets(streams.home.length - 1, lastIndexLoaded + 1, streams.home)
           }
-          else{
+          else if($(this).attr('id') !== 'submitTweet'){
             loadTweets(streams.users[$(this).attr('id')].length - 1, lastIndexLoaded + 1, streams.users[$(this).attr('id')]);
           }
         });
@@ -67,9 +82,13 @@
           loadTweets(streams.home.length - 1, 0, streams.home);
         })
 
+        $(document).on('click', '#submitTweet', function(){
+          visitor = "someTwittler";
+          writeTweet($('input').val());
+        })
+
         $(document).on('click', 'strong', function(){
           var user = $(this).text().split("@")[1];
-          console.log(user);
           var $back = $('<button class="back">View all Tweets</button>')
 
           $container.children().html('');

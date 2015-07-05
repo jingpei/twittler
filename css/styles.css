@@ -16,43 +16,114 @@ nav {
 
 aside {
   display: none; }
-  @media screen and (min-width: 1280px) {
+  @media screen and (min-width: 1260px) {
     aside {
       display: block;
       width: 300px;
-      height: 450px;
       margin: 20px;
       background-color: #ffffff;
       border-radius: 5px; } }
 
 .left {
+  height: 200px;
+  position: relative;
   float: left; }
+  .left .leftTop {
+    width: 100%;
+    height: 40%;
+    background-color: #1dcaff;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px; }
+
+.profileImg {
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  border: 4px solid #ffffff;
+  top: 20px;
+  left: 20px;
+  background-color: #0084b4;
+  margin: 3px;
+  color: #ffffff;
+  font-size: 4em;
+  text-align: center;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px; }
+
+.profileTitle {
+  margin-top: 5px;
+  margin-left: 145px; }
+  .profileTitle p {
+    margin: 0;
+    font-size: 0.8em; }
+
+.profileInfo {
+  margin-top: 20px; }
+  .profileInfo div {
+    box-sizing: border-box;
+    font-size: 0.8em;
+    padding: 0 10px;
+    width: 30%;
+    display: inline-block;
+    color: #b6dbee; }
+    .profileInfo div p {
+      margin-top: 0px; }
 
 .right {
+  height: 400px;
   float: right; }
 
-.container {
+.container, .postTweet {
   background-color: #ffffff;
   width: 100%;
+  height: auto;
   font-size: 0.9em; }
   @media screen and (min-width: 650px) {
-    .container {
+    .container, .postTweet {
       width: 600px;
       margin: 20px auto 30px auto;
       -moz-border-radius: 5px;
       -webkit-border-radius: 5px;
       border-radius: 5px; } }
 
+.postTweet {
+  text-align: center; }
+
+input {
+  display: inline-block;
+  width: 90%;
+  height: 30px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 5px 10px;
+  font-size: 1em;
+  color: #ff7200;
+  border-style: solid;
+  border: 1px solid #ff7200;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px; }
+
+input::-webkit-input-placeholder {
+  color: #ff7200;
+  opacity: 0.5; }
+
+input:focus {
+  outline: 0; }
+
 button {
   display: block;
   width: 100%;
   height: 40px;
   border-style: none;
-  border-bottom: 3px solid #55acee;
   background-color: #e0e9ee;
   font-family: "Open Sans", sans-serif;
   font-size: 1em;
   color: #ff7200; }
+  @media screen and (min-width: 650px) {
+    button {
+      border-bottom: 2px solid #55acee; } }
 
 .load {
   border-top-right-radius: 5px;
@@ -77,6 +148,9 @@ button:focus {
     margin: 6px 0 0 0; }
   .tweetContainer div:hover {
     background-color: #e0e9ee; }
+
+strong {
+  color: #0084b4; }
 
 strong:hover {
   color: #ff7200;

@@ -9,6 +9,12 @@ $linkHoverOrange: #ff7200;
 $fontOpenSans: 'Open Sans', sans-serif;
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300);
 
+@mixin border-radius($radius){
+	-moz-border-radius: $radius;
+	-webkit-border-radius: $radius;
+	border-radius: $radius;
+}
+
 body, html {
 	margin: 0;
 	padding: 0;
@@ -30,10 +36,9 @@ nav {
 aside {
 	display: none;
 
-	@media screen and (min-width: 1280px){
+	@media screen and (min-width: 1260px){
 		display: block;
 		width: 300px;
-		height: 450px;
 		margin: 20px;
 		background-color: $white;
 		border-radius: 5px;
@@ -41,29 +46,107 @@ aside {
 }
 
 .left {
+	height: 200px;
+	position: relative;
 	float: left;
+
+	.leftTop {
+		width: 100%;
+		height: 40%;
+		background-color: $brightBlue;
+		border-top-right-radius: 5px;
+		border-top-left-radius: 5px;
+	}
+}
+
+.profileImg {
+	width: 100px;
+	height: 100px;
+	position: absolute;
+	border: 4px solid $white;
+	top: 20px;
+	left: 20px;
+	background-color: $darkBlue;
+	margin: 3px;
+	color: $white;
+	font-size: 4em;
+	text-align: center;
+
+	@include border-radius(5px);
+}
+
+.profileTitle {
+	margin-top: 5px;
+	margin-left: 145px;
+	
+	p {
+		margin: 0;
+		font-size: 0.8em;
+	}
+
+}
+
+.profileInfo {
+	margin-top: 20px;
+
+	div {
+		box-sizing: border-box;
+		font-size: 0.8em;	
+		padding: 0 10px;
+		width: 30%;	
+		display: inline-block;
+		color: $buttonBlue;
+
+		p {
+			margin-top: 0px;
+		}
+	}
 }
 
 .right {
+	height: 400px;
 	float: right;
 }
 
-.container {
-
+.container, .postTweet {
 	background-color: $white;
 	width: 100%;
+	height: auto;
 	font-size: 0.9em;
 
-
-	
 	@media screen and (min-width: 650px){
 		width: 600px;
 		margin: 20px auto 30px auto;
-		-moz-border-radius: 5px;
-		-webkit-border-radius: 5px;
-		border-radius: 5px;
+		@include border-radius(5px);
 	}
+}
 
+.postTweet {
+	text-align: center;
+}
+
+input {
+	display: inline-block;
+	width: 90%;
+	height: 30px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	padding: 5px 10px;
+	font-size: 1em;
+	color: $linkHoverOrange;
+	border-style: solid;
+	border: 1px solid $linkHoverOrange;
+
+	@include border-radius(5px);
+}
+
+input::-webkit-input-placeholder {
+	color: $linkHoverOrange;
+	opacity: 0.5;
+}
+
+input:focus {
+	outline: 0;
 }
 
 button {
@@ -71,11 +154,14 @@ button {
 	width: 100%;
 	height: 40px;
 	border-style: none;
-	border-bottom: 3px solid $blue;	
+
 	background-color: $hoverBlue;
 	font-family: $fontOpenSans;
 	font-size: 1em;
 	color: $linkHoverOrange;
+	@media screen and (min-width: 650px){
+		border-bottom: 2px solid $blue;	
+	}
 }
 
 .load {
@@ -109,6 +195,10 @@ button:focus {
 	div:hover {
 		background-color: $hoverBlue;
 	}
+}
+
+strong {
+	color: $darkBlue;
 }
 
 strong:hover {
