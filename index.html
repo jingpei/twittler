@@ -13,6 +13,7 @@
         var $container = $('<div class="container"></div>');
 
         $body.html('');
+        $button.addClass('home');
         $button.appendTo($body);
         $container.appendTo($body);
 
@@ -39,8 +40,13 @@
 
         loadTweets(streams.home.length - 1, 0, streams.home);
 
-        $('button').on('click', function(){
-          loadTweets(streams.home.length - 1, lastIndexLoaded + 1, streams.home)
+        $body.on('click', 'button', function(){
+          if($(this).attr('class') === 'home'){
+            loadTweets(streams.home.length - 1, lastIndexLoaded + 1, streams.home)
+          }
+          else{
+            loadTweets(streams.users[$(this).attr('class')].length - 1, lastIndexLoaded + 1, streams.users[$(this).attr('class')]);
+          }
         });
 
         $('div').on('click', 'strong', function(){
@@ -48,6 +54,8 @@
 
           $body.html('');
           $container.html('');
+          $button.removeClass();
+          $button.addClass(user);
           $button.appendTo($body);
           $container.appendTo($body);
 
