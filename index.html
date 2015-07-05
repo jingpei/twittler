@@ -13,7 +13,8 @@
         var $container = $('<div class="container"></div>');
 
         $body.html('');
-        $button.addClass('home');
+        $button.addClass('load');
+        $button.attr('id', 'home');
         $button.appendTo($body);
         $container.appendTo($body);
 
@@ -40,23 +41,34 @@
 
         loadTweets(streams.home.length - 1, 0, streams.home);
 
-        $body.on('click', 'button', function(){
-          if($(this).attr('class') === 'home'){
+        $body.on('click', '.load', function(){
+          if($(this).attr('id') === 'home'){
             loadTweets(streams.home.length - 1, lastIndexLoaded + 1, streams.home)
           }
           else{
-            loadTweets(streams.users[$(this).attr('class')].length - 1, lastIndexLoaded + 1, streams.users[$(this).attr('class')]);
+            loadTweets(streams.users[$(this).attr('id')].length - 1, lastIndexLoaded + 1, streams.users[$(this).attr('id')]);
           }
         });
 
-        $('div').on('click', 'strong', function(){
+        $body.on('click', '.back', function(){
+          $body.html('');
+          $container.html('');
+          $button.attr('id', 'home');
+          $button.appendTo($body);
+          $container.appendTo($body);
+
+          loadTweets(streams.home.length - 1, 0, streams.home);
+        })
+
+        $(document).on('click', 'strong', function(){
           var user = $(this).text();
+          var $back = $('<button class="back">Back</button>')
 
           $body.html('');
           $container.html('');
-          $button.removeClass();
-          $button.addClass(user);
+          $button.attr('id', user);
           $button.appendTo($body);
+          $back.appendTo($body);
           $container.appendTo($body);
 
           loadTweets(streams.users[user].length - 1, 0, streams.users[user]);
