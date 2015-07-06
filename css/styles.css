@@ -82,7 +82,7 @@ aside {
   @media screen and (min-width: 650px) {
     .container, .postTweet {
       width: 600px;
-      margin: 20px auto 30px auto;
+      margin: 20px auto;
       -moz-border-radius: 5px;
       -webkit-border-radius: 5px;
       border-radius: 5px; } }
