@@ -52,20 +52,7 @@
           while(stopIndex <= index){
 
             var tweet = tweetArr[stopIndex];
-            // var $tweet = $('<div></div>');
-            // var $timestamp = $('<p></p>');
-            // var $user = $('<strong></strong');
-            
-            // $timestamp.text(tweet.created_at);
-            // $user.text('@' + tweet.user);
-
-            // $tweet.append($user, ': ' + tweet.message, $timestamp);
-
-            // if(tweet.user === "someTwittler"){
-            //   $tweet.clone().hide().prependTo($right.children('.myTweetContainer')).fadeIn(500);
-            // }
             var $tweet = tweetBlock(tweet);
-
             $tweet.hide().prependTo($container.children('.tweetContainer')).fadeIn(500);
 
             stopIndex += 1;
