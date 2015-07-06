@@ -27,14 +27,27 @@ body {
 
 nav {
 	width: 100%;
-	background-color: $white;
+	background-color: $blue;
+	color: $white;
 	text-align: center;
 	font-size: 1.5em;
 	padding: 5px 0px;
+
+	img {
+		display: block;
+		width: 25px;
+		margin: 5px auto;
+	}
+
+	@media screen and (min-width: 650px){
+		background-color: $white;
+		color: $darkBlue;
+	}
 }
 
 aside {
 	display: none;
+	box-sizing: border-box;
 
 	@media screen and (min-width: 1260px){
 		display: block;
@@ -56,6 +69,14 @@ aside {
 		background-color: $brightBlue;
 		border-top-right-radius: 5px;
 		border-top-left-radius: 5px;
+	}
+}
+
+.right {
+	overflow: hidden;
+
+	p {
+		margin: 5px 7px;
 	}
 }
 
@@ -136,6 +157,7 @@ input {
 	color: $linkHoverOrange;
 	border-style: solid;
 	border: 1px solid $linkHoverOrange;
+	white-space: normal;
 
 	@include border-radius(5px);
 }
@@ -181,7 +203,7 @@ button:focus {
 	outline: 0;
 }
 
-.tweetContainer {
+.tweetContainer, .myTweetContainer {
 	font-size: 0.9em;
 
 	div {

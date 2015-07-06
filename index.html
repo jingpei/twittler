@@ -9,7 +9,7 @@
 
   </head>
   <body>
-    <nav>Twittler</nav>
+    <nav><img src="assets/logo.png"></nav>
     <aside class="left">
       <div class="leftTop"></div>
       <div class="profileImg">@</div>
@@ -20,7 +20,10 @@
         <div id="followerCount">FOLLOWERS<p><strong>0</strong></p></div>
       </div>
     </aside>
-    <aside class="right">Recent Tweets</aside>
+    <aside class="right">
+      <p>Recent Tweets</p>
+      <div class="myTweetContainer"></div>
+    </aside>
     <div class="postTweet">
       <input placeholder="What's happening?" maxlength="140"></input>
       <button id="submitTweet">Tweet</button>
@@ -35,6 +38,7 @@
         var $button = $('<button>Load new Tweets</button>');
         var $container = $('.container');
         var $tweetPostContainer = $('.postTweet'); 
+        var $right = $('.right');
 
         $button.addClass('load');
         $button.attr('id', 'home');
@@ -48,6 +52,27 @@
           while(stopIndex <= index){
 
             var tweet = tweetArr[stopIndex];
+            // var $tweet = $('<div></div>');
+            // var $timestamp = $('<p></p>');
+            // var $user = $('<strong></strong');
+            
+            // $timestamp.text(tweet.created_at);
+            // $user.text('@' + tweet.user);
+
+            // $tweet.append($user, ': ' + tweet.message, $timestamp);
+
+            // if(tweet.user === "someTwittler"){
+            //   $tweet.clone().hide().prependTo($right.children('.myTweetContainer')).fadeIn(500);
+            // }
+            var $tweet = tweetBlock(tweet);
+
+            $tweet.hide().prependTo($container.children('.tweetContainer')).fadeIn(500);
+
+            stopIndex += 1;
+          }
+        }
+
+        var tweetBlock = function(tweet){
             var $tweet = $('<div></div>');
             var $timestamp = $('<p></p>');
             var $user = $('<strong></strong');
@@ -55,11 +80,7 @@
             $timestamp.text(tweet.created_at);
             $user.text('@' + tweet.user);
 
-            $tweet.append($user, ': ' + tweet.message, $timestamp)
-            $tweet.hide().prependTo($container.children('.tweetContainer')).fadeIn(500);
-            
-            stopIndex += 1;
-          }
+            return $tweet.append($user, ': ' + tweet.message, $timestamp);
         }
 
         loadTweets(streams.home.length - 1, 0, streams.home);
@@ -91,6 +112,9 @@
             streams.users[visitor] = [];
           }
           writeTweet(message);
+
+          var $tweet = tweetBlock(streams.users[visitor][streams.users[visitor].length - 1]);
+          $tweet.hide().prependTo($right.children('.myTweetContainer')).fadeIn(500);
           $('input').val('');
           loadTweets(streams.home.length - 1, lastIndexLoaded + 1, streams.home);
         })

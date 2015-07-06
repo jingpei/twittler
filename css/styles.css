@@ -9,13 +9,23 @@ body {
 
 nav {
   width: 100%;
-  background-color: #ffffff;
+  background-color: #55acee;
+  color: #ffffff;
   text-align: center;
   font-size: 1.5em;
   padding: 5px 0px; }
+  nav img {
+    display: block;
+    width: 25px;
+    margin: 5px auto; }
+  @media screen and (min-width: 650px) {
+    nav {
+      background-color: #ffffff;
+      color: #0084b4; } }
 
 aside {
-  display: none; }
+  display: none;
+  box-sizing: border-box; }
   @media screen and (min-width: 1260px) {
     aside {
       display: block;
@@ -34,6 +44,11 @@ aside {
     background-color: #1dcaff;
     border-top-right-radius: 5px;
     border-top-left-radius: 5px; }
+
+.right {
+  overflow: hidden; }
+  .right p {
+    margin: 5px 7px; }
 
 .profileImg {
   width: 100px;
@@ -101,6 +116,7 @@ input {
   color: #ff7200;
   border-style: solid;
   border: 1px solid #ff7200;
+  white-space: normal;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
   border-radius: 5px; }
@@ -138,15 +154,15 @@ button:active {
 button:focus {
   outline: 0; }
 
-.tweetContainer {
+.tweetContainer, .myTweetContainer {
   font-size: 0.9em; }
-  .tweetContainer div {
+  .tweetContainer div, .myTweetContainer div {
     padding: 15px;
     border-top: 1px solid #e0e9ee; }
-  .tweetContainer p {
+  .tweetContainer p, .myTweetContainer p {
     font-size: 0.8em;
     margin: 6px 0 0 0; }
-  .tweetContainer div:hover {
+  .tweetContainer div:hover, .myTweetContainer div:hover {
     background-color: #e0e9ee; }
 
 strong {
