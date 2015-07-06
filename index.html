@@ -56,7 +56,7 @@
             $user.text('@' + tweet.user);
 
             $tweet.append($user, ': ' + tweet.message, $timestamp)
-            $tweet.prependTo($container.children('.tweetContainer'));
+            $tweet.hide().prependTo($container.children('.tweetContainer')).fadeIn(500);
             
             stopIndex += 1;
           }
@@ -83,6 +83,9 @@
 
         $tweetPostContainer.on('click', '#submitTweet', function(){
           var message = $('input').val();
+          if(message.length === 0){
+            return;
+          }
           visitor = "someTwittler";
           if(streams.users[visitor] === undefined){
             streams.users[visitor] = [];
