@@ -28,7 +28,7 @@
             var $timestamp = $('<p></p>');
             var $user = $('<strong></strong');
             
-            $timestamp.text(tweet.created_at);
+            $timestamp.text(moment(tweet.created_at).fromNow());
             $user.text('@' + tweet.user);
 
             return $tweet.append($user, ': ' + tweet.message, $timestamp);
