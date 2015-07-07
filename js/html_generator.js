@@ -21,13 +21,21 @@
 
             stopIndex += 1;
           }
+          updateTime();
+        }
+
+        var updateTime = function(){
+          $('.timestamp').each(function(index){
+            $(this).text(moment($(this).data().time).fromNow());
+          })
         }
 
         var tweetBlock = function(tweet){
             var $tweet = $('<div></div>');
-            var $timestamp = $('<p></p>');
+            var $timestamp = $('<p class="timestamp"></p>');
             var $user = $('<strong></strong');
             
+            $timestamp.data('time', tweet.created_at);
             $timestamp.text(moment(tweet.created_at).fromNow());
             $user.text('@' + tweet.user);
 
